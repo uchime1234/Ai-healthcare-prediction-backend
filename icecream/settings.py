@@ -99,14 +99,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'changeme')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 
-"""
+
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL')
     )
 }
 
-"""
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
