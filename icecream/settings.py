@@ -48,20 +48,33 @@ MIDDLEWARE = [
 ]
 
 # CORS settings
+# CORS settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
-CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ALLOW_METHODS = ["GET", "POST", "OPTIONS"]
-CORS_ALLOW_HEADERS = [
-    "content-type",
-    "accept",
-    "origin",
-    "authorization",  # Add authorization for token
-    "x-csrftoken",
+    "http://localhost:3000",
+    "http://localhost:5173", 
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5173",
+    "https://ai-healthcare-prediction-frontend.vercel.app",
 ]
 
+# If you have multiple preview deployments, use this pattern:
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vercel\.app$",  # Allows all Vercel preview deployments
+]
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "accept", 
+    "origin",
+    "authorization",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+# Preflight requests can be cached for 1 hour
+CORS_PREFLIGHT_MAX_AGE = 3600
 # Session settings (not strictly needed for token auth, but keeping for compatibility)
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SECURE = False  # False for development (http)
